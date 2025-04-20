@@ -1,12 +1,16 @@
 # Claude + Harvard Art Frontend with Integrated Prompt
-
+import os
 from flask import Flask, request, render_template_string
+from dotenv import load_dotenv
+import os
 import requests
 
+# Load API key from .env
+load_dotenv()
 app = Flask(__name__)
 
-HARVARD_API_KEY = 'your_api_key_here'  # Replace with your Harvard Art Museums API Key
-CLAUDE_API_KEY = 'your_claude_api_key_here'  # Replace with your Claude API Key
+HARVARD_API_KEY = os.getenv('HARVARD_API_KEY')
+CLAUDE_API_KEY = os.getenv('CLAUDE_API_KEY')
 CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages'
 API_URL = 'https://api.harvardartmuseums.org/object'
 
