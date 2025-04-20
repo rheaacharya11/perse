@@ -100,12 +100,22 @@ def call_claude(prompt):
         ]
     }
     response = requests.post(CLAUDE_API_URL, headers=headers, json=payload)
-    data = response.json()
-    # Gracefully handle unexpected or missing keys
+
     try:
-        return data['content'][0]['text']
-    except (KeyError, IndexError):
-        return "Sorry, something went wrong when generating the story."
+        data = response.json()
+        print("Claude API Response:", data)  # For debugging
+
+        # Claude v3 format typically returns:
+        # {'content': [{'type': 'text', 'text': '...'}]}
+        for part in data.get("content", []):
+            if part.get("type") == "text":
+                return part.get("text")
+        return "Claude API responded, but no story was returned."
+    except Exception as e:
+        print("Error parsing Claude response:", e)
+        return f"Error generating story: {e}"
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
