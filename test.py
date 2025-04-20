@@ -3,7 +3,7 @@ import requests
 CLAUDE_API_KEY = "your_claude_api_key_here"
 
 headers = {
-    'Authorization': f'Bearer {CLAUDE_API_KEY}',
+    'x-api-key': CLAUDE_API_KEY,
     'Content-Type': 'application/json',
     'anthropic-version': '2023-06-01'
 }
