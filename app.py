@@ -5,7 +5,7 @@ import requests
 
 # Load API key from .env
 load_dotenv()
-API_KEY = os.getenv('HAM_API_KEY')
+API_KEY = os.getenv('HARVARD_API_KEY')
 
 app = Flask(__name__)
 
