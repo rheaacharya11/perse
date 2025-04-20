@@ -1,12 +1,16 @@
 from flask import Flask, request, render_template_string
+from dotenv import load_dotenv
+import os
 import requests
+
+# Load API key from .env
+load_dotenv()
+API_KEY = os.getenv('HAM_API_KEY')
 
 app = Flask(__name__)
 
-API_KEY = 'your_api_key_here'  # Replace with your Harvard Art Museums API Key
 API_URL = 'https://api.harvardartmuseums.org/object'
 
-# HTML template with a form and a section to show results
 TEMPLATE = '''
 <!doctype html>
 <html lang="en">
