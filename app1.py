@@ -88,7 +88,7 @@ End with a reflection on what the painting means now, and what it might be think
 
 def call_claude(prompt):
     headers = {
-        'Authorization': f'Bearer {CLAUDE_API_KEY}',
+        'x-api-key': CLAUDE_API_KEY,  # Changed from 'Authorization': f'Bearer {CLAUDE_API_KEY}'
         'Content-Type': 'application/json',
         'anthropic-version': '2023-06-01'
     }
@@ -114,7 +114,6 @@ def call_claude(prompt):
     except Exception as e:
         print("Error parsing Claude response:", e)
         return f"Error generating story: {e}"
-
 
 
 @app.route('/', methods=['GET', 'POST'])

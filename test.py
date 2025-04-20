@@ -1,7 +1,6 @@
 import requests
 import os
 
-
 # Set up headers with the correct authentication format
 headers = {
     'x-api-key': CLAUDE_API_KEY,
