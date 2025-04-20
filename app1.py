@@ -110,7 +110,7 @@ def call_claude(prompt):
         for part in data.get("content", []):
             if part.get("type") == "text":
                 return part.get("text")
-        return "Claude API responded, but no story was returned."
+        return f"Claude API responded, but no story was returned. Raw content: {data}"
     except Exception as e:
         print("Error parsing Claude response:", e)
         return f"Error generating story: {e}"
