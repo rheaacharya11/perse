@@ -1,12 +1,10 @@
 import requests
 import os
 
-# Get API key from environment variable or set it directly
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY") or "your_actual_api_key_here"
 
 # Set up headers with the correct authentication format
 headers = {
-    'x-api-key': ANTHROPIC_API_KEY,
+    'x-api-key': CLAUDE_API_KEY,
     'Content-Type': 'application/json',
     'anthropic-version': '2023-06-01'
 }
